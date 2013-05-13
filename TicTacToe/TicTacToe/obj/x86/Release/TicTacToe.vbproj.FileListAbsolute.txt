@@ -1,0 +1,4 @@
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\ResolveAssemblyReference.cache
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\TicTacToe.Resources.resources
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\ResGen.read.1.tlog
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\ResGen.write.1.tlog
