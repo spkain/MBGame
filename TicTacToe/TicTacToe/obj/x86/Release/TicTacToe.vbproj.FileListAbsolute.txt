@@ -2,3 +2,9 @@ F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\ResolveAssemblyReferen
 F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\TicTacToe.Resources.resources
 F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\ResGen.read.1.tlog
 F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\ResGen.write.1.tlog
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\bin\Release\TicTacToe.exe
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\bin\Release\TicTacToe.pdb
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\bin\Release\TicTacToe.xml
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\TicTacToe.exe
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\TicTacToe.xml
+F:\work\src\vb\MBGame\TicTacToe\TicTacToe\obj\x86\Release\TicTacToe.pdb

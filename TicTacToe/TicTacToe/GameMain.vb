@@ -11,10 +11,9 @@
 
         '' TODO:
         Dim judge As New Judge()
-        Dim board As New GameBoard()
 
         Dim players() As IPlay = {mainPlayer, cpuPlayer}
-
+        Dim board As New GameBoard()
 
 
 
