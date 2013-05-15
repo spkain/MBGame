@@ -2,6 +2,7 @@
     Implements IPlay
 
     Private _name As String
+    Private _hand As HandType
     Private _win As Boolean
     Private _cpu As Boolean
 
@@ -17,6 +18,7 @@
     Private Sub CreateCpuData()
         _name = "CPU"
         _cpu = True
+        _hand = HandType.Cross
     End Sub
 
     Private Sub CreateUserData()
@@ -28,6 +30,7 @@
             Console.WriteLine("your name is nothing.")
             _name = "nothing"
         End If
+        _hand = HandType.Circle
 
     End Sub
 

@@ -82,6 +82,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PlayControl.vb" />
     <Compile Include="Player.vb" />
     <Compile Include="Point.vb" />
     <Compile Include="User.vb" />
