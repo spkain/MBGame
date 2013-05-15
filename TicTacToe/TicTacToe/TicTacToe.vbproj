@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="GameBoard.vb" />
     <Compile Include="GameMain.vb" />
+    <Compile Include="Hand.vb" />
     <Compile Include="IPlay.vb" />
     <Compile Include="Judge.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
