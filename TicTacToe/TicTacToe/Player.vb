@@ -47,6 +47,19 @@
     End Property
 
     Public Sub Play(ByRef gameboard As GameBoard) Implements IPlay.Play
+        If _cpu = True Then
+            gameboard.UpdateCell(New Random().Next() * 10, _hand)
+        Else
+            gameboard.UpdateCell(GetSelectCellNumber(), _hand)
+        End If
+    End Sub
 
+
+    Private Function GetSelectCellNumber() As Integer
+        Return Int32.Parse(Console.ReadLine())
+    End Function
+
+    Public Sub WinnerInfo() Implements IPlay.WinnerInfo
+        Console.WriteLine("winner is {0}.", _name)
     End Sub
 End Class

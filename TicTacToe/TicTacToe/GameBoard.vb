@@ -7,7 +7,7 @@
          {0, 0, 0}, _
          {0, 0, 0} _
             }
-    Private dic As Dictionary(Of Integer, Point)
+    Private dic As New Dictionary(Of Integer, Point)
 
     Public WriteOnly Property Winner As IPlay
         Set(value As IPlay)
@@ -26,6 +26,36 @@
         dic.Add(8, New Point(2, 1))
         dic.Add(9, New Point(2, 2))
     End Sub
+
+    Public Sub Display()
+
+        puts("┌─┬─┬─┐")
+        For y As Integer = 0 To 2
+            For x As Integer = 0 To 2
+                print("│")
+                print(GetHandStr(_field(y, x)))
+            Next
+            puts("│")
+            If y < 2 Then
+                puts("├─┼─┼─┤")
+            End If
+        Next
+        puts("└─┴─┴─┘")
+
+    End Sub
+
+    Private Function GetHandStr(ByVal i As Integer)
+        Select Case (i)
+            Case 0
+                Return "　"
+            Case 1
+                Return "○"
+            Case 2
+                Return "×"
+            Case Else
+                Return "　"
+        End Select
+    End Function
 
 
     Private Function GetCell(ByVal index As Integer) As Point
@@ -99,7 +129,7 @@
 
         If (_field(0, 2) = h And _
             _field(1, 1) = h And _
-            _field(2, 0) = h And) Then _
+            _field(2, 0) = h) Then
 
             Return True
         End If
@@ -124,10 +154,17 @@
 
     Public Function IsFinish() As Boolean
         ' TODO:
-        Return False
+        Return True
+
     End Function
 
+    Private Sub print(ByVal str As String)
+        Console.Write(str)
+    End Sub
 
+    Private Sub puts(ByVal str As String)
+        Console.WriteLine(str)
+    End Sub
 
 
 End Class
