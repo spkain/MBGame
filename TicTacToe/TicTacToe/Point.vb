@@ -3,7 +3,7 @@
     Private _x As Integer
     Private _y As Integer
 
-    Public Sub New(ByVal x As Integer, ByVal y As Integer)
+    Public Sub New(ByVal y As Integer, ByVal x As Integer)
         _x = x
         _y = y
     End Sub

@@ -27,6 +27,16 @@
         dic.Add(9, New Point(2, 2))
     End Sub
 
+    Public Sub SelectShowDisplay()
+        puts("┌─┬─┬─┐")
+        puts("│１│２│３│")
+        puts("├─┼─┼─┤")
+        puts("│４│５│６│")
+        puts("├─┼─┼─┤")
+        puts("│７│８│９│")
+        puts("└─┴─┴─┘")
+    End Sub
+
     Public Sub Display()
 
         puts("┌─┬─┬─┐")
@@ -86,8 +96,8 @@
     End Sub
 
     Public Function IsBoardEmpty()
-        For y As Integer = 0 To 3
-            For x As Integer = 0 To 3
+        For y As Integer = 0 To 2
+            For x As Integer = 0 To 2
                 If _field(y, x) = 0 Then
                     Return False
                 End If
@@ -99,7 +109,7 @@
     Public Function IsWin(ByRef h As HandType) As Boolean
 
         '
-        For x As Integer = 0 To 3
+        For x As Integer = 0 To 2
             If (_field(0, x) = h And _
                 _field(1, x) = h And _
                 _field(2, x) = h) Then
@@ -109,7 +119,7 @@
         Next
 
         '
-        For y As Integer = 0 To 3
+        For y As Integer = 0 To 2
             If (_field(y, 0) = h And _
                 _field(y, 1) = h And _
                 _field(y, 2) = h) Then
@@ -153,8 +163,10 @@
     End Sub
 
     Public Function IsFinish() As Boolean
-        ' TODO:
-        Return True
+        If _winner IsNot Nothing Or IsBoardEmpty() = True Then
+            Return True
+        End If
+        Return False
 
     End Function
 
