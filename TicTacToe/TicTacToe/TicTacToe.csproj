@@ -8,7 +8,7 @@
     <ProjectGuid>{59AB1FCE-015C-4306-AEE5-9FB545D0FDE8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleApplication2</RootNamespace>
+    <RootNamespace>TicTacToe</RootNamespace>
     <AssemblyName>TicTacToe</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -38,8 +38,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="GameBoard.cs" />
+    <Compile Include="GameMain.cs" />
+    <Compile Include="HandType.cs" />
+    <Compile Include="IPlay.cs" />
+    <Compile Include="Judge.cs" />
+    <Compile Include="PlayerType.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
