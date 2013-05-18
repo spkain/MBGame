@@ -15,7 +15,7 @@ namespace TicTacToe
 
         internal bool judgegame(Player mainPlayer)
         {
-            if (_board.HasWinner)
+            if (_board.IsWInner(mainPlayer))
                 return true;
 
             if (_board.IsFinished)

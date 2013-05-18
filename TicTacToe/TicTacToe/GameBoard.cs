@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TicTacToe
 {
-    class GameBoard
+    class GameBoard : IBoard
     {
         private IPlay _winner;
         private int[,] _field = {
@@ -28,6 +28,36 @@ namespace TicTacToe
             dic.Add(9, new Point(2, 2));
         }
 
+        public void Display()
+        {
+            for (int y = 0; y < 3; ++y)
+            {
+                puts("+---+---+---+");
+                for (int x = 0; x < 3; ++x)
+                {
+                    print("|");
+                    PrintCell(_field[y, x]);
+                }
+                
+                puts("|");
+            }
+            puts("+---+---+---+");
+            puts("");
+        }
+
+        public void DisplayForSelectNumber()
+        {
+            puts("+---+---+---+");
+            puts("| 1 | 2 | 3 |");
+            puts("+---+---+---+");
+            puts("| 4 | 5 | 6 |");
+            puts("+---+---+---+");
+            puts("| 7 | 8 | 9 |");
+            puts("+---+---+---+");
+            puts("");
+        }
+
+
         public bool IsCellEmpty(int num)
         {
             Point pos = GetCell(num);
@@ -41,9 +71,9 @@ namespace TicTacToe
 
         public bool IsAllCellEmpty()
         {
-            for (int y = 0; y < 10; ++y)
+            for (int y = 0; y < 3; ++y)
             {
-                for (int x = 0; x < 10; ++x)
+                for (int x = 0; x < 3; ++x)
                 {
                     if (_field[y, x] == 0)
                     {
@@ -52,6 +82,14 @@ namespace TicTacToe
                 }
             }
             return true;
+        }
+
+        public void GetCellValInfo(int num)
+        {
+            if (0 < num && num < 10)
+            {
+                puts(String.Format("select number[{0}] is {1}", num, GetCellStr(num)));
+            }
         }
 
         public Point GetCell(int num)
@@ -77,19 +115,79 @@ namespace TicTacToe
             }
         }
 
-        private bool IsFinish()
-        {
-            throw new NotImplementedException();
-        }
 
         internal void endgame()
         {
             if (HasWinner)
+            {
                 _winner.WinInfo();
+            }
+            else
+            {
+                puts("game is draw.");
+            }
 
+            
             puts("### game is end. Otsukaresama Deshita. ###");
         }
 
+        public bool IsWInner(IPlay p)
+        {
+            for (int y = 0; y < 3; ++y)
+            {
+                if (_field[y, 0] == p.GetHand() &&
+                    _field[y, 1] == p.GetHand() &&
+                    _field[y, 2] == p.GetHand())
+                {
+                    _winner = p;
+                    return true;
+                }
+
+            }
+
+            for (int x = 0; x < 3; ++x)
+            {
+                if (_field[0, x] == p.GetHand() &&
+                    _field[1, x] == p.GetHand() &&
+                    _field[2, x] == p.GetHand())
+                {
+                    _winner = p;
+                    return true;
+                }
+
+            }
+
+            if (_field[0, 0] == p.GetHand() &&
+                _field[1, 1] == p.GetHand() &&
+                _field[2, 2] == p.GetHand())
+            {
+                _winner = p;
+                return true;
+            }
+
+            if (_field[0, 2] == p.GetHand() &&
+                _field[1, 1] == p.GetHand() &&
+                _field[2, 0] == p.GetHand())
+            {
+                _winner = p;
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool HasWinner
+        {
+            get
+            {
+                if (_winner == null)
+                    return false;
+
+                return true;
+            }
+        }
+
+#region private methods
         private void print(string str)
         {
             Console.Write(str);
@@ -100,14 +198,34 @@ namespace TicTacToe
             Console.WriteLine(str);
         }
 
-        public bool HasWinner {
-            get
-            {
-                if (_winner == null)
-                    return false;
+        private void PrintCell(int p)
+        {
+            print(GetCellStr(p));
+        }
 
-                return true;
+        private string GetCellStr(int p)
+        {
+            switch (p)
+            {
+                case 0:
+                    return "   ";
+                case 1:
+                    return " o ";
+                case 2:
+                    return " x ";
+                default:
+                    return "   ";
             }
         }
+
+        private bool IsFinish()
+        {
+            if (HasWinner || IsAllCellEmpty())
+            {
+                return true;
+            }
+            return false;
+        }
+#endregion
     }
 }

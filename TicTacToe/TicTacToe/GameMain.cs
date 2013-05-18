@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading;
 
 namespace TicTacToe
 {
@@ -14,14 +13,6 @@ namespace TicTacToe
         static void Main()
         {
             new GameMain().MainLoop();
-            
-        }
-
-        void TestLoop()
-        {
-            Player mainPlayer = new Player(PlayerType.USER);
-            Player cpuPlayer = new Player(PlayerType.CPU);
-
         }
 
         void MainLoop()
@@ -36,8 +27,10 @@ namespace TicTacToe
             Judge judge = new Judge(board);
 
             board.startgame();
-            while (board.IsFinished) 
+            while (board.IsFinished == false) 
             {
+                board.Display();
+
                 mainPlayer.Play(board);
                 if (judge.judgegame(mainPlayer) == true) {
                     break;
@@ -50,6 +43,7 @@ namespace TicTacToe
                 }
             }
             board.endgame();
+            Thread.Sleep(3000);   
         }
 
     }

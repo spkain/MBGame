@@ -8,5 +8,6 @@ namespace TicTacToe
     {
         void Play(GameBoard board);
         void WinInfo();
+        int GetHand();
     }
 }
